@@ -1,0 +1,14 @@
+{
+  "folders": [
+    {
+      "name": "LogicAppsTelemetryExample",
+      "path": "./LogicAppsTelemetryExample"
+    },
+    {
+      "path": "LogicAppsTelemetryExample.AppHost"
+    },
+    {
+      "path": "LogicAppsTelemetryExample.ServiceDefaults"
+    }
+  ]
+}

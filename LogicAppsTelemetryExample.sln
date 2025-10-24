@@ -1,0 +1,30 @@
+﻿Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.0.0
+MinimumVisualStudioVersion = 17.8.0.0
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LogicAppsTelemetryExample.AppHost", "LogicAppsTelemetryExample.AppHost\LogicAppsTelemetryExample.AppHost.csproj", "{734DBCF8-60A4-4EDD-B991-47A07F9DC1B3}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LogicAppsTelemetryExample.ServiceDefaults", "LogicAppsTelemetryExample.ServiceDefaults\LogicAppsTelemetryExample.ServiceDefaults.csproj", "{0DBEC572-2672-43D5-A347-714E8A216FC6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{734DBCF8-60A4-4EDD-B991-47A07F9DC1B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{734DBCF8-60A4-4EDD-B991-47A07F9DC1B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{734DBCF8-60A4-4EDD-B991-47A07F9DC1B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{734DBCF8-60A4-4EDD-B991-47A07F9DC1B3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0DBEC572-2672-43D5-A347-714E8A216FC6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0DBEC572-2672-43D5-A347-714E8A216FC6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0DBEC572-2672-43D5-A347-714E8A216FC6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0DBEC572-2672-43D5-A347-714E8A216FC6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0C277B65-E4EB-484E-A74B-93AEC3BD88A5}
+	EndGlobalSection
+EndGlobal

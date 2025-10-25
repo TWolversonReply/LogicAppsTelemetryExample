@@ -17,6 +17,9 @@ var table = storage.AddTables("table");
 
 var logicapps = builder.AddExecutable("logicapps", Environment.ExpandEnvironmentVariables(@"%userprofile%\.azurelogicapps\dependencies\FuncCoreTools\func.exe"), "..\\LogicAppsTelemetryExample", args: ["host", "start", "--runtime", "inproc8", "--language-worker", "dotnet"])
     .WithEnvironment("PATH", $"%PATH%;{Environment.ExpandEnvironmentVariables(@"%userprofile%\.azurelogicapps\dependencies\NodeJs\")};{Environment.ExpandEnvironmentVariables(@"%userprofile%\.azurelogicapps\dependencies\DotNetSDK\")}")
+    .WithEnvironment("OTEL_EXPORTER_OTLP_ENDPOINT", "https://localhost:21265")
+    .WithEnvironment("OTEL_SERVICE_NAME", "LogicAppsStandardExample")
+    .WithEnvironment("OTEL_EXPORTER_OTLP_HEADERS", $"x-otlp-api-key={builder.Configuration["AppHost:OtlpApiKey"]}")
     .WaitFor(blobs);
 
 builder.Build().Run();

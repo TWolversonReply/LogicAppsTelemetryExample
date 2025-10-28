@@ -1,0 +1,13 @@
+Done:
+- Start a barebones Logic App with `func host start` from the Aspire AppHost
+- Emit logs - but not traces - into the OTel collector by setting the environment variables
+
+TODO:
+- Emit traces and view these in the dashboard
+- Expose the Logic App SAS URL in the dashboard
+- Start the dependencies in design-time as well as runtime
+
+Known issues:
+- Only works by passing userprofile paths to the Logic Apps extension-managed versions of the Dotnet SDK and Node, not the system-installed versions
+- Hardcoded `OTEL_EXPORTER_OTLP_ENDPOINT` port
+- Would like to add a Service Bus action, but the connector doesn't seem to support the SB emulator

@@ -11,3 +11,4 @@ Known issues:
 - Only works by passing userprofile paths to the Logic Apps extension-managed versions of the Dotnet SDK and Node, not the system-installed versions
 - Hardcoded `OTEL_EXPORTER_OTLP_ENDPOINT` port
 - Would like to add a Service Bus action, but the connector doesn't seem to support the SB emulator
+- With a workspace open, F5 defaults to starting the Logic App project

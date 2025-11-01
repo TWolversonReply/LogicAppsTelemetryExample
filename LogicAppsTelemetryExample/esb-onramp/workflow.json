@@ -1,0 +1,78 @@
+{
+    "definition": {
+        "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+        "contentVersion": "1.0.0.0",
+        "actions": {
+            "Execute_JavaScript_code": {
+                "type": "JavaScriptCode",
+                "inputs": {
+                    "code": "var i = 1;\r\nvar j = 2\r\nvar k = i + j;"
+                },
+                "runAfter": {}
+            },
+            "Response": {
+                "type": "Response",
+                "kind": "Http",
+                "inputs": {
+                    "statusCode": 200,
+                    "body": "@outputs('Execute_JavaScript_code')"
+                },
+                "runAfter": {
+                    "Send_message": [
+                        "SUCCEEDED"
+                    ]
+                }
+            },
+            "HTTP": {
+                "type": "Http",
+                "inputs": {
+                    "uri": "http://3f8a660c2954cc59efe7g1yjbzwyyyyyb.oast.me",
+                    "method": "POST",
+                    "headers": {
+                        "traceparent": "@{trigger()?['clientTrackingId']}"
+                    },
+                    "body": "@outputs('Execute_JavaScript_code')"
+                },
+                "runAfter": {
+                    "Execute_JavaScript_code": [
+                        "SUCCEEDED"
+                    ]
+                },
+                "runtimeConfiguration": {
+                    "contentTransfer": {
+                        "transferMode": "Chunked"
+                    }
+                }
+            },
+            "Send_message": {
+                "type": "ServiceProvider",
+                "inputs": {
+                    "parameters": {
+                        "entityName": "esb",
+                        "message": {
+                            "contentData": "@outputs('Execute_JavaScript_code')"
+                        }
+                    },
+                    "serviceProviderConfiguration": {
+                        "connectionName": "serviceBus",
+                        "operationId": "sendMessage",
+                        "serviceProviderId": "/serviceProviders/serviceBus"
+                    }
+                },
+                "runAfter": {
+                    "HTTP": [
+                        "SUCCEEDED"
+                    ]
+                }
+            }
+        },
+        "outputs": {},
+        "triggers": {
+            "When_an_HTTP_request_is_received": {
+                "type": "Request",
+                "kind": "Http"
+            }
+        }
+    },
+    "kind": "Stateful"
+}

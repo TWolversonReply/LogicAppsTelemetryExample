@@ -50,7 +50,8 @@
                     "parameters": {
                         "entityName": "esb",
                         "message": {
-                            "contentData": "@outputs('Execute_JavaScript_code')"
+                            "contentData": "@outputs('Execute_JavaScript_code')",
+                            "correlationId": "@trigger()?['clientTrackingId']"
                         }
                     },
                     "serviceProviderConfiguration": {
